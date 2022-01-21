@@ -16,7 +16,7 @@ Dicas:
 
 expressao = "<<.<<..>><>><.>.>.<<.>.<.>>>><>><>>"
 
-def contar_diamantes(expressao)
+def pegar_diamantes(expressao)
   expressao.scan(/<>/)
 end
 
@@ -28,17 +28,10 @@ def extrair_areias(expressao)
   expressao.split(".").join('')
 end
 
-
 def diamantes_areias(expressao)
   expressao_sem_areia = extrair_areias(expressao)
 
   diamantes = []
-
-  until expressao_sem_areia.match(/<>/) do
-    expressao_final = extrair_diamantes(expressao_sem_areia)
-  end
-
-  puts expressao_final
 
 end
 
