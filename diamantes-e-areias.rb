@@ -1,3 +1,4 @@
+
 =begin
 Desafio Lógica de programação
 Dado um conjunto de caracteres, você precisará extrair os "diamantes" ( <>) e as "areias" ( . ) da expressão e no
@@ -8,7 +9,6 @@ Requisitos:
 ● Exibir a quantidade de diamantes extraídos;;
 ● O projeto deve ser disponibilizado em um repositório aberto no GitHub. Envie a URL assim que
 possível
-
 Dicas:
 ● O diamante é a junção dos sinais de menor e maior sem que haja entre eles
 ● Areia é o ponto final.
@@ -29,10 +29,16 @@ def extrair_areias(expressao)
 end
 
 def diamantes_areias(expressao)
-  expressao_sem_areia = extrair_areias(expressao)
-
+  p expressao
+  exp1 = extrair_areias(expressao)
   diamantes = []
+  while exp1.scan(/<>/).count > 0
+    diamantes << pegar_diamantes(exp1)
+    exp1 = extrair_diamantes(exp1)
+    p exp1
+  end
 
+  p diamantes.flatten.count
 end
 
 diamantes_areias(expressao)
