@@ -17,7 +17,9 @@ Dicas:
 expressao = "<<.<<..>><>><.>.>.<<.>.<.>>>><>><>>"
 
 def pegar_diamantes(expressao)
-  expressao.scan(/<>/)
+  scan = expressao.scan(/<>/)
+  puts "----EXTRAINDO #{scan.count} DIAMANTES-----" if scan.count > 0
+  scan
 end
 
 def extrair_diamantes(expressao)
@@ -29,9 +31,11 @@ def extrair_areias(expressao)
 end
 
 def diamantes_areias(expressao)
+  p "------------EXTRACAO DE AREIAS E DIAMANTES------------------"
   p expressao
   exp1 = extrair_areias(expressao)
-  p "#{exp1}: As areias foram extraidas"
+  p "---EXTRAINDO AREIAS----"
+  p exp1
   diamantes = []
 
   while exp1.scan(/<>/).count > 0
@@ -40,7 +44,7 @@ def diamantes_areias(expressao)
     p exp1
   end
 
-  p "Foram extraidos #{diamantes.flatten.count} diamantes"
+  p "---------------FORAM EXTRAIDOS #{diamantes.flatten.count} DIAMANTES------------------"
 end
 
 diamantes_areias(expressao)
