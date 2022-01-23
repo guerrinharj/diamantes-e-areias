@@ -31,14 +31,16 @@ end
 def diamantes_areias(expressao)
   p expressao
   exp1 = extrair_areias(expressao)
+  p "#{exp1}: As areias foram extraidas"
   diamantes = []
+
   while exp1.scan(/<>/).count > 0
     diamantes << pegar_diamantes(exp1)
     exp1 = extrair_diamantes(exp1)
     p exp1
   end
 
-  p diamantes.flatten.count
+  p "Foram extraidos #{diamantes.flatten.count} diamantes"
 end
 
 diamantes_areias(expressao)
